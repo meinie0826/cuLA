@@ -27,7 +27,9 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 """
-KDA (Kimi Delta Attention) using CuTe DSL
+KDA (Kimi Delta Attention) using CuTe DSL [WIP]
+
+Status: This module is a work in progress (WIP) and is not considered a stable production path yet.
 
 This module implements chunkwise KDA with gate-based attention for
 the NVIDIA Blackwell SM100 architecture using CUTE DSL.

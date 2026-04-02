@@ -1,7 +1,7 @@
 # Repository Layout
 
 ```
-flashla/
+cuLA/
 ├── cula/                         # Python package (pip install -e .)
 │   ├── kda/                      # KDA (Kimi Delta Attention) operators
 │   │   ├── chunk.py              # End-to-end chunk KDA (fwd + bwd entry point)
@@ -17,8 +17,7 @@ flashla/
 │   │   ├── recompute_wu.py       # Recompute WU kernel
 │   │   ├── lightning_attn.py     # Lightning Attention prefill kernel
 │   │   ├── linear_attn.py        # Generic linear attention kernel
-│   │   ├── kda_fully_fused.py    # Fully fused KDA kernel
-│   │   └── inv.py                # Matrix inversion utility
+│   │   ├── kda_fully_fused_wip.py # WIP fully fused KDA kernel
 │   └── utils.py                  # Shared utilities
 │
 ├── csrc/                         # CUDA C++ / CUTLASS kernels

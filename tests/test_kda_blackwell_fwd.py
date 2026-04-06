@@ -176,10 +176,8 @@ def test_safe_gate_chunk(
 
     assert_close("o", ref, tri, 0.005)
     assert_close("o (vs fla)", ref_fla, tri, 0.005)
-    # TODO: output_final_state not yet implemented in WIP kernel (garbage values)
-    # Remove xfail once final state write is implemented in kda_fully_fused_wip.py
-    # assert_close("ht", ref_ht, tri_ht, 0.005)
-    # assert_close("ht (vs fla)", ref_ht_fla, tri_ht, 0.005)
+    assert_close("ht", ref_ht, tri_ht, 0.005)
+    assert_close("ht (vs fla)", ref_ht_fla, tri_ht, 0.005)
 
 
 # ============================================================
@@ -301,7 +299,5 @@ def test_safe_gate_chunk_varlen(
 
     assert_close("o", ref, tri, 0.005)
     assert_close("o (vs fla)", ref_fla, tri, 0.005)
-    # TODO: output_final_state not yet implemented in WIP kernel (garbage values)
-    # Remove xfail once final state write is implemented in kda_fully_fused_wip.py
-    # assert_close("ht", ref_ht, tri_ht, 0.005)
-    # assert_close("ht (vs fla)", ref_ht_fla, tri_ht, 0.005)
+    assert_close("ht", ref_ht, tri_ht, 0.005)
+    assert_close("ht (vs fla)", ref_ht_fla, tri_ht, 0.005)

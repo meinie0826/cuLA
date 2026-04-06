@@ -3099,14 +3099,19 @@ class KDAChunkwise:
 
                     # ------------------------------------------------------------
                     # NOTE: Save exp(g) of last VALID row to rG_last for state update in next chunk
-                    # For full chunks, directly use C-1; only loop for partial chunks (varlen only)
+                    # For full chunks, directly use C-1; for partial tail chunks use actual last token.
                     if cutlass.const_expr(self.is_varlen):
                         if valid_len_chunk < C:
                             rG_last = exp_g[valid_len_chunk - 1]
                         else:
                             rG_last = exp_g[Constant.C - 1]
                     else:
-                        rG_last = exp_g[Constant.C - 1]
+                        # non-varlen: tail chunk may be partial (seq_len % C != 0)
+                        tail_len = seq_len % C  # 0 means full chunk
+                        if idx == final_blk and tail_len != 0:
+                            rG_last = exp_g[tail_len - 1]
+                        else:
+                            rG_last = exp_g[Constant.C - 1]
                     # NOTE: each thread save one element
                     sG_last[local_tidx, g_stage_idx] = rG_last
 
